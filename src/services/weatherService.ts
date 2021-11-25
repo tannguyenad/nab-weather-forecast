@@ -1,5 +1,11 @@
 import axios from "axios";
-import { ILocation, ILocationResponse } from "../types";
+import {
+    IConsolidatedWeather,
+    ILocation,
+    ILocationResponse,
+    ILocationWeatherResponse,
+    IWeather,
+} from "../types";
 
 class WeatherService {
     async searchLocations(term: string): Promise<ILocation[]> {
@@ -17,6 +23,17 @@ class WeatherService {
                 name,
                 type,
             };
+        });
+    }
+
+    async getLocationWeather(locationId: number): Promise<IWeather[]> {
+        const { data } = await axios.get<ILocationWeatherResponse>(`/api/location/${locationId}/`);
+        const { consolidated_weather: consolidatedWeather = [] } = data;
+
+        return consolidatedWeather.map<IWeather>((weather: IConsolidatedWeather) => {
+            const { id, min_temp: minTemp, max_temp: maxTemp, applicable_date: date } = weather;
+
+            return { id, minTemp, maxTemp, date };
         });
     }
 }

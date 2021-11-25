@@ -1,9 +1,15 @@
 import React from "react";
 import { useLocationSearch } from "../../hooks/useLocationSearch";
+import { ILocation } from "../../types";
 import Autocomplete from "../Autocomplete/Autocomplete";
 import "./SearchBar.scss";
 
-export default function SearchBar() {
+interface ISearchBarProps {
+    onSelect: (location: ILocation) => void;
+}
+
+export default function SearchBar(props: ISearchBarProps) {
+    const { onSelect } = props;
     const { isLoading, locations, search } = useLocationSearch();
 
     return (
@@ -15,7 +21,7 @@ export default function SearchBar() {
                     items={locations}
                     loading={isLoading}
                     onChange={search}
-                    onSelect={(_) => {}}
+                    onSelect={onSelect}
                 />
             </div>
         </div>

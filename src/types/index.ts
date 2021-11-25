@@ -11,3 +11,21 @@ export interface ILocationResponse {
 }
 
 export type onChangeCallback = (value: string) => void;
+
+export interface IWeather {
+    id: number;
+    date: string;
+    minTemp: number;
+    maxTemp: number;
+}
+
+export interface IConsolidatedWeather {
+    id: number;
+    min_temp: number;
+    max_temp: number;
+    applicable_date: string;
+}
+
+export interface ILocationWeatherResponse extends ILocationResponse {
+    consolidated_weather: IConsolidatedWeather[];
+}
