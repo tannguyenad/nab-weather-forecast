@@ -1,3 +1,4 @@
+import { AxiosError } from "axios";
 import { useCallback, useState } from "react";
 import { useQuery } from "react-query";
 import WeatherService from "../services/weatherService";
@@ -8,23 +9,20 @@ interface IUsePlaceSearchHook {
     isLoading: boolean;
     locations: ILocation[];
     search: onChangeCallback;
-    error: Error | null;
+    error: AxiosError | null;
 }
 
 export function useLocationSearch(): IUsePlaceSearchHook {
     const [query, setQuery] = useState<string>("");
     const searchText = useDebounce<string>(query);
     const search = useCallback<onChangeCallback>((value: string) => setQuery(value), []);
+    const handler = useCallback(() => WeatherService.searchLocations(searchText), [searchText]);
 
     const {
         isLoading,
         data: locations = [],
         error,
-    } = useQuery<ILocation[], Error>(
-        ["locations", searchText],
-        () => WeatherService.searchLocations(searchText),
-        { enabled: !!searchText },
-    );
+    } = useQuery<ILocation[], AxiosError>(["locations", searchText], handler, { enabled: !!searchText });
 
     return {
         isLoading,

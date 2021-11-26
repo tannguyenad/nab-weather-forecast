@@ -10,26 +10,26 @@ import { onChangeCallback } from "../../types";
 
 import "./Autocomplete.scss";
 
-interface IAutoCompleteProps<T extends Record<string, any>> {
+interface IAutoCompleteProps<TData extends Record<string, any>> {
     placeholder?: string;
-    labelKey: keyof T;
-    items: T[];
+    labelKey: keyof TData;
+    items: TData[];
     loading?: boolean;
     onChange: onChangeCallback;
-    onSelect: (item: T) => void;
+    onSelect: (item: TData) => void;
 }
 
 const noop = () => {};
 
-export default function Autocomplete<T extends Record<string, any>>(props: IAutoCompleteProps<T>) {
+export default function Autocomplete<TData extends Record<string, any>>(props: IAutoCompleteProps<TData>) {
     const { labelKey, items, placeholder, loading, onChange, onSelect } = props;
     const [value, setValue] = useState<string>("");
 
-    const getSuggestionValue = (item: T) => item[labelKey];
-    const renderSuggestion = (item: T) => <span>{item[labelKey]}</span>;
+    const getSuggestionValue = (item: TData) => item[labelKey];
+    const renderSuggestion = (item: TData) => <span>{item[labelKey]}</span>;
 
     const onValueChanged = (_event: FormEvent<HTMLElement>, params: ChangeEvent) => setValue(params.newValue);
-    const onSuggestionSelected = (_event: FormEvent<HTMLElement>, data: SuggestionSelectedEventData<T>) =>
+    const onSuggestionSelected = (_event: FormEvent<HTMLElement>, data: SuggestionSelectedEventData<TData>) =>
         onSelect(data.suggestion);
 
     const onSuggestionsFetchRequested = (params: SuggestionsFetchRequestedParams) => {
@@ -40,7 +40,7 @@ export default function Autocomplete<T extends Record<string, any>>(props: IAuto
         }
     };
 
-    const inputProps: InputProps<T> = {
+    const inputProps: InputProps<TData> = {
         placeholder,
         value,
         onChange: onValueChanged,

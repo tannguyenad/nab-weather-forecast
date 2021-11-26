@@ -19,9 +19,9 @@ export default function LocationWeather(props: ILocationWeatherProps) {
                     <h3>{location?.name}</h3>
                     {isLoading && <h4>...</h4>}
                 </div>
-                <div className="row">
+                <div className="row" role="listbox">
                     {data.map((weather: IWeather) => (
-                        <div key={weather.id} className="col py-3">
+                        <div key={weather.id} className="col py-3" role="listitem">
                             <Weather data={weather} />
                         </div>
                     ))}

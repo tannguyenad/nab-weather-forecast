@@ -23,5 +23,5 @@ export function getDateString(dateString: string): string {
 }
 
 export function getCelsius(value: number): string {
-    return `${Math.floor(value)}°C`;
+    return `${Math.round(value)}°C`;
 }
