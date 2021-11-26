@@ -16,7 +16,7 @@ export default function LocationWeather(props: ILocationWeatherProps) {
         <div className="LocationWeather py-4">
             <div className="container">
                 <div className="text-center mb-3">
-                    <h3>{location?.name}</h3>
+                    <h3 className="text-primary">{location?.name}</h3>
                     {isLoading && <h4>...</h4>}
                 </div>
                 <div className="row" role="listbox">

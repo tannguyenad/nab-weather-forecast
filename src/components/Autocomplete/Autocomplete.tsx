@@ -1,87 +1,77 @@
-import React, { FormEvent, useState } from "react";
-import Autosuggest, {
-    ChangeEvent,
-    InputProps,
-    SuggestionSelectedEventData,
-    SuggestionsFetchRequestedParams,
-} from "react-autosuggest";
-import searchIcon from "../../assets/search.svg";
+import React from "react";
+import Select, { ActionMeta, components, ControlProps } from "react-select";
 import { onChangeCallback } from "../../types";
+import searchIcon from "../../assets/search.svg";
 
 import "./Autocomplete.scss";
 
-interface IAutoCompleteProps<TData extends Record<string, any>> {
+type JSONObject = Record<string, any>;
+
+interface IAutoCompleteProps<TData extends JSONObject> {
     placeholder?: string;
     labelKey: keyof TData;
+    valueKey: keyof TData;
     items: TData[];
     loading?: boolean;
     onChange: onChangeCallback;
     onSelect: (item: TData) => void;
 }
 
-const noop = () => {};
+const noOptionsMessage = () => "No results";
 
-export default function Autocomplete<TData extends Record<string, any>>(props: IAutoCompleteProps<TData>) {
-    const { labelKey, items, placeholder, loading, onChange, onSelect } = props;
-    const [value, setValue] = useState<string>("");
+const Control = <TData extends JSONObject>({ children, ...props }: ControlProps<TData, false>) => {
+    return (
+        <components.Control {...props}>
+            <div className="Autocomplete__leadingIcon">
+                <img src={searchIcon} alt="Search" />
+            </div>
+            {children}
+        </components.Control>
+    );
+};
 
-    const getSuggestionValue = (item: TData) => item[labelKey];
-    const renderSuggestion = (item: TData) => <span>{item[labelKey]}</span>;
+export default function Autocomplete<TData extends JSONObject>(props: IAutoCompleteProps<TData>) {
+    const { labelKey, valueKey, items, placeholder, loading, onChange, onSelect } = props;
 
-    const onValueChanged = (_event: FormEvent<HTMLElement>, params: ChangeEvent) => setValue(params.newValue);
-    const onSuggestionSelected = (_event: FormEvent<HTMLElement>, data: SuggestionSelectedEventData<TData>) =>
-        onSelect(data.suggestion);
+    const getOptionValue = (item: TData) => item[valueKey];
+    const getOptionLabel = (item: TData) => item[labelKey];
 
-    const onSuggestionsFetchRequested = (params: SuggestionsFetchRequestedParams) => {
-        const { value, reason } = params;
+    const onOptionChanged = (value: string) => {
+        // prevent calling API if the item is already existing
+        const item = items.find((item: TData) =>
+            item[labelKey].toString().toLowerCase().includes(value.toLowerCase()),
+        );
 
-        if (reason === "input-changed") {
+        if (!item) {
             onChange(value);
         }
     };
 
-    const inputProps: InputProps<TData> = {
-        placeholder,
-        value,
-        onChange: onValueChanged,
-        className: "form-control",
+    const onOptionSelected = (option: TData | null, actionMeta: ActionMeta<TData>) => {
+        if (actionMeta.action === "clear") {
+            onChange("");
+            return;
+        }
+
+        if (actionMeta.action === "select-option" && option) {
+            onSelect(option);
+        }
     };
 
-    const classNames = "Autocomplete" + (loading ? " loading" : "");
-
     return (
-        <div className={classNames}>
-            <Autosuggest
-                suggestions={items}
-                inputProps={inputProps}
-                getSuggestionValue={getSuggestionValue}
-                renderSuggestion={renderSuggestion}
-                renderInputComponent={renderInput}
-                onSuggestionSelected={onSuggestionSelected}
-                onSuggestionsFetchRequested={onSuggestionsFetchRequested}
-                onSuggestionsClearRequested={noop}
-            />
-        </div>
-    );
-}
-
-/**
- * Render custom input with search icon and spinner for loading state
- * @param props
- * @returns
- */
-function renderInput(props: React.HTMLProps<HTMLInputElement>) {
-    return (
-        <>
-            <div className="Autocomplete__leadingIcon">
-                <img src={searchIcon} alt="Search" />
-            </div>
-            <input type="text" {...props} />
-            <div className="Autocomplete__spinner">
-                <div className="spinner-border text-info spinner-border-md" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                </div>
-            </div>
-        </>
+        <Select
+            autoFocus
+            isClearable
+            className="Autocomplete"
+            placeholder={placeholder}
+            getOptionLabel={getOptionLabel}
+            getOptionValue={getOptionValue}
+            options={items}
+            isLoading={loading}
+            components={{ Control }}
+            noOptionsMessage={noOptionsMessage}
+            onInputChange={onOptionChanged}
+            onChange={onOptionSelected}
+        />
     );
 }

@@ -1,6 +1,8 @@
 # Weather Forecast Application
 
 Ability to search weather information within a week for any city from over the world.
+![preview](preview.png)
+[![license](https://img.shields.io/npm/l/serverless.svg)](https://github.com/tan-nad/nab-weather-forecast)
 
 ## How to use
 
@@ -14,6 +16,8 @@ Ability to search weather information within a week for any city from over the w
 1. Install [NodeJS](https://nodejs.org/en/download/)
 2. Install **Yarn** by command `npm install -g yarn`
 
+**Notice:** You might need to have Node 14.15.0 or later on your local machine.
+
 ### Development
 
 1. `git clone https://github.com/tannguyenad/nab-weather-forecast.git`
@@ -24,3 +28,7 @@ Ability to search weather information within a week for any city from over the w
 ### Testing
 
 Run `yarn test` to launches the test runner in the interactive watch mode.
+
+## License
+
+MIT Licensed. Copyright (c) Tan Nguyen 2021.

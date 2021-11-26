@@ -17,6 +17,7 @@ export default function SearchBar(props: ISearchBarProps) {
             <div className="container py-3">
                 <Autocomplete
                     labelKey="name"
+                    valueKey="id"
                     placeholder="Search city..."
                     items={locations}
                     loading={isLoading}

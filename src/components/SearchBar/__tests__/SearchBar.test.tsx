@@ -19,10 +19,7 @@ describe("SearchBar", () => {
     });
 
     it("should render Autocomplete", () => {
-        const { getByRole } = setup();
-        const inputEl = getByRole("textbox");
-
-        expect(inputEl).toBeInTheDocument();
-        expect(inputEl.getAttribute("placeholder")).toBe("Search city...");
+        const { getByText } = setup();
+        expect(getByText("Search city...")).toBeInTheDocument();
     });
 });
