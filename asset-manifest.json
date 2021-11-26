@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/nab-weather-forecast/static/css/main.b588175a.chunk.css",
-    "main.js": "/nab-weather-forecast/static/js/main.5d4fef5b.chunk.js",
-    "main.js.map": "/nab-weather-forecast/static/js/main.5d4fef5b.chunk.js.map",
+    "main.js": "/nab-weather-forecast/static/js/main.110868df.chunk.js",
+    "main.js.map": "/nab-weather-forecast/static/js/main.110868df.chunk.js.map",
     "runtime-main.js": "/nab-weather-forecast/static/js/runtime-main.9702af24.js",
     "runtime-main.js.map": "/nab-weather-forecast/static/js/runtime-main.9702af24.js.map",
-    "static/js/2.978240ff.chunk.js": "/nab-weather-forecast/static/js/2.978240ff.chunk.js",
-    "static/js/2.978240ff.chunk.js.map": "/nab-weather-forecast/static/js/2.978240ff.chunk.js.map",
+    "static/js/2.64914ed0.chunk.js": "/nab-weather-forecast/static/js/2.64914ed0.chunk.js",
+    "static/js/2.64914ed0.chunk.js.map": "/nab-weather-forecast/static/js/2.64914ed0.chunk.js.map",
     "static/js/3.b775a181.chunk.js": "/nab-weather-forecast/static/js/3.b775a181.chunk.js",
     "static/js/3.b775a181.chunk.js.map": "/nab-weather-forecast/static/js/3.b775a181.chunk.js.map",
     "index.html": "/nab-weather-forecast/index.html",
     "static/css/main.b588175a.chunk.css.map": "/nab-weather-forecast/static/css/main.b588175a.chunk.css.map",
-    "static/js/2.978240ff.chunk.js.LICENSE.txt": "/nab-weather-forecast/static/js/2.978240ff.chunk.js.LICENSE.txt",
+    "static/js/2.64914ed0.chunk.js.LICENSE.txt": "/nab-weather-forecast/static/js/2.64914ed0.chunk.js.LICENSE.txt",
     "static/media/search.65a7fd14.svg": "/nab-weather-forecast/static/media/search.65a7fd14.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.9702af24.js",
-    "static/js/2.978240ff.chunk.js",
+    "static/js/2.64914ed0.chunk.js",
     "static/css/main.b588175a.chunk.css",
-    "static/js/main.5d4fef5b.chunk.js"
+    "static/js/main.110868df.chunk.js"
   ]
 }
