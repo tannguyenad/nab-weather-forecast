@@ -2,7 +2,9 @@
 
 Ability to search weather information for five days of any city from over the world.
 ![preview](preview.png)
+
 [![license](https://img.shields.io/npm/l/serverless.svg)](https://github.com/tan-nad/nab-weather-forecast)
+[![codecov](https://codecov.io/gh/tannguyenad/nab-weather-forecast/branch/master/graph/badge.svg?token=QQBMN9VPEQ)](https://codecov.io/gh/tannguyenad/nab-weather-forecast)
 
 **Demo:** https://nab-weather-forecast-tan.herokuapp.com
 
