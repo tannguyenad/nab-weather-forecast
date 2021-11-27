@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/static/css/main.60ffd218.chunk.css",
-    "main.js": "/static/js/main.31cd9601.chunk.js",
-    "main.js.map": "/static/js/main.31cd9601.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.0bbfd0f6.js",
-    "runtime-main.js.map": "/static/js/runtime-main.0bbfd0f6.js.map",
-    "static/js/2.2adfd8b5.chunk.js": "/static/js/2.2adfd8b5.chunk.js",
-    "static/js/2.2adfd8b5.chunk.js.map": "/static/js/2.2adfd8b5.chunk.js.map",
-    "static/js/3.a1e31dea.chunk.js": "/static/js/3.a1e31dea.chunk.js",
-    "static/js/3.a1e31dea.chunk.js.map": "/static/js/3.a1e31dea.chunk.js.map",
-    "index.html": "/index.html",
-    "static/css/main.60ffd218.chunk.css.map": "/static/css/main.60ffd218.chunk.css.map",
-    "static/js/2.2adfd8b5.chunk.js.LICENSE.txt": "/static/js/2.2adfd8b5.chunk.js.LICENSE.txt",
-    "static/media/search.65a7fd14.svg": "/static/media/search.65a7fd14.svg"
+    "main.css": "/nab-weather-forecast/static/css/main.60ffd218.chunk.css",
+    "main.js": "/nab-weather-forecast/static/js/main.7331d9b1.chunk.js",
+    "main.js.map": "/nab-weather-forecast/static/js/main.7331d9b1.chunk.js.map",
+    "runtime-main.js": "/nab-weather-forecast/static/js/runtime-main.377ff8ee.js",
+    "runtime-main.js.map": "/nab-weather-forecast/static/js/runtime-main.377ff8ee.js.map",
+    "static/js/2.dbe5d2c9.chunk.js": "/nab-weather-forecast/static/js/2.dbe5d2c9.chunk.js",
+    "static/js/2.dbe5d2c9.chunk.js.map": "/nab-weather-forecast/static/js/2.dbe5d2c9.chunk.js.map",
+    "static/js/3.a1e31dea.chunk.js": "/nab-weather-forecast/static/js/3.a1e31dea.chunk.js",
+    "static/js/3.a1e31dea.chunk.js.map": "/nab-weather-forecast/static/js/3.a1e31dea.chunk.js.map",
+    "index.html": "/nab-weather-forecast/index.html",
+    "static/css/main.60ffd218.chunk.css.map": "/nab-weather-forecast/static/css/main.60ffd218.chunk.css.map",
+    "static/js/2.dbe5d2c9.chunk.js.LICENSE.txt": "/nab-weather-forecast/static/js/2.dbe5d2c9.chunk.js.LICENSE.txt",
+    "static/media/search.65a7fd14.svg": "/nab-weather-forecast/static/media/search.65a7fd14.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0bbfd0f6.js",
-    "static/js/2.2adfd8b5.chunk.js",
+    "static/js/runtime-main.377ff8ee.js",
+    "static/js/2.dbe5d2c9.chunk.js",
     "static/css/main.60ffd218.chunk.css",
-    "static/js/main.31cd9601.chunk.js"
+    "static/js/main.7331d9b1.chunk.js"
   ]
 }
