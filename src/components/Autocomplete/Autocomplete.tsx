@@ -30,7 +30,9 @@ const Control = <TData extends JSONObject>({ children, ...props }: ControlProps<
     );
 };
 
-export default function Autocomplete<TData extends JSONObject>(props: IAutoCompleteProps<TData>) {
+export default function Autocomplete<TData extends JSONObject>(
+    props: IAutoCompleteProps<TData>,
+): JSX.Element {
     const { labelKey, valueKey, items, placeholder, loading, onChange, onSelect } = props;
 
     const getOptionValue = (item: TData) => item[valueKey];

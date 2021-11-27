@@ -8,7 +8,7 @@ interface ISearchBarProps {
     onSelect: (location: ILocation) => void;
 }
 
-export default function SearchBar(props: ISearchBarProps) {
+export default function SearchBar(props: ISearchBarProps): JSX.Element {
     const { onSelect } = props;
     const { isLoading, locations, search } = useLocationSearch();
 

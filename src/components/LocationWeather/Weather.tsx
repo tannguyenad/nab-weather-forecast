@@ -5,7 +5,7 @@ interface IWeatherProps {
     data: IWeather;
 }
 
-export default function Weather(props: IWeatherProps) {
+export default function Weather(props: IWeatherProps): JSX.Element {
     const { data } = props;
     const day = getWeekDay(data.date);
     const date = getDateString(data.date);

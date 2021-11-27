@@ -22,7 +22,9 @@ export function useLocationSearch(): IUsePlaceSearchHook {
         isLoading,
         data: locations = [],
         error,
-    } = useQuery<ILocation[], AxiosError>(["locations", searchText], handler, { enabled: !!searchText });
+    } = useQuery<ILocation[], AxiosError>(["locations", searchText], handler, {
+        enabled: Boolean(searchText),
+    });
 
     return {
         isLoading,

@@ -1,8 +1,10 @@
 # Weather Forecast Application
 
-Ability to search weather information within a week for any city from over the world.
+Ability to search weather information for five days of any city from over the world.
 ![preview](preview.png)
 [![license](https://img.shields.io/npm/l/serverless.svg)](https://github.com/tan-nad/nab-weather-forecast)
+
+**Demo:** https://nab-weather-forecast-tan.herokuapp.com
 
 ## How to use
 
